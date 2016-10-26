@@ -97,6 +97,40 @@ var ImgFigure = React.createClass({
 	}
 });
 
+// 控制组件
+var ControllerUnit = React.createClass({
+	/**
+	 * 控制器点击函数
+	 * @return {[type]} [description]
+	 */
+	handleClick: function(e) {
+		// 点击icon对应的图如果是居中状态
+		if (this.props.arrange.isCenter) {
+			this.props.inverse(); // 旋转
+		}else {
+			this.props.center(); // 居中
+		}
+		e.stopPropagation();
+		e.preventDefault();
+	},
+	render: function() {
+
+		var controllerUnitClassName = "controller-unit";
+		// 如果图片是居中放置
+		if(this.props.arrange.isCenter) {
+			controllerUnitClassName += " is-center";// 添加icon样式
+		}
+		// 如果图片翻转
+		if (this.props.arrange.isInverse) {
+			controllerUnitClassName += " icon-inverse";// 添加icon 翻转样式 
+		}
+
+		return (
+			<span className={controllerUnitClassName} onClick={this.handleClick}></span>
+		);
+	}
+});
+
 var AppComponent = React.createClass({
 	// 位置排布点(先设置0，0)
 	Constant: {
@@ -308,7 +342,11 @@ var AppComponent = React.createClass({
 					isCenter: false
 				};
 			}
+			// 插入图片组件
 	      	imgFigures.push(<ImgFigure key={index} data={value} ref={'imgFigure' + index} arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
+	      	// 插入控制组件
+	      	controllerUnits.push(<ControllerUnit key={index} arrange={this.state.imgsArrangeArr[index]} inverse={this.inverse(index)} center={this.center(index)}/>);
+
 	    }.bind(this));
 
 	    return (
