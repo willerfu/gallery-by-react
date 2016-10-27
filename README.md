@@ -8,7 +8,7 @@
 
 话不多说，直接说下我在项目中遇到的一些问题，和最终的解决方式，希望对其他刚刚学习的小伙伴有所帮助，少走弯路少填坑。
 
-### 问题1：json-loader的加载
+#### 问题1：json-loader的加载
 由于loader版本的问题，视频中引用是：
 
 ```
@@ -19,7 +19,7 @@ var imageDatas = require('../data/imageDatas.json');
 ```
 var imageDatas = require('json!../data/imageDatas.json');
 ```
-### 问题2：sass的配置
+#### 问题2：sass的配置
 视频中更改样式文件，只要把css改为scss，然后在main.js中同样把引入的css文件改为相应的scss文件即可，并没有需要安装什么。但是，我们实践的时候，就会报错，首先检查下自己的**package.json** 文件中是否在 **devDependencies** 中有sass-loader 和 node-sass , 如果没有请自行安装
 
 安装 **sass-loader** 并更新 **package.json**文件
@@ -45,13 +45,21 @@ cnpm install node-sass
 ```
 你会明显发现这个安装快很多，这样就解决了sass的配置
 
-### 问题3：启动项目
+#### 问题3：启动项目
 
 这里我们启动项目使用`npm start` 或者 `npm run serve`
 
 打包dist文件夹使用：`npm run dist`
 
 跑dist使用：`npm run serve:dist`
+
+命令使用可以在github中搜索generator-react-webpack的API，里面有列出命令和注释。
+
+----------
+
+#### 总结
+
+第一次真正在实践中上手使用React和webpack,感受到了组件开发的强大魅力和打包工具的神奇高效，学会了使用Yoman快速构建项目目录。后续会继续优化代码，尝试相应使用ES6语法。
 
 ----------
 感谢Materliu，一名很酷的老师，果断已经路转粉。
