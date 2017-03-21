@@ -33,7 +33,7 @@ function getDefaultModules() {
         loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded&indentedSyntax'
       },
       {
-        test: /\.scss/, // 在css-loader前添加autoprefixer-loader配置项 
+        test: /\.scss/, // 在css-loader前添加autoprefixer-loader配置项
         loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version", "Firefox 15"]}!sass-loader?outputStyle=expanded'
       },
       {
@@ -44,10 +44,10 @@ function getDefaultModules() {
         test: /\.styl/,
         loader: 'style-loader!css-loader!stylus-loader'
       },
-      // {
-      //   test: /\.json$/,
-      //   loader:'json-loader'
-      // },
+      {
+        test: /\.json$/,
+        loader:'json-loader'
+      },
       {
         test: /\.(png|jpg|gif|woff|woff2|eot|ttf|svgs)$/,
         loader: 'url-loader?limit=8192'
